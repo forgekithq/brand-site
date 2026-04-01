@@ -42,6 +42,7 @@
     button.disabled = true;
     message.textContent = '';
 
+    let success = false;
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
@@ -54,6 +55,7 @@
         message.textContent = data.message ?? "Thanks! We'll keep you posted.";
         message.className = 'mt-3 text-sm text-brand-accent';
         form.reset();
+        success = true;
       } else {
         const data = await res.json().catch(() => null);
         message.textContent = data?.error ?? 'Something went wrong. Try again later.';
@@ -63,7 +65,9 @@
       message.textContent = 'Something went wrong. Try again later.';
       message.className = 'mt-3 text-sm text-red-400';
     } finally {
-      button.disabled = false;
+      if (!success) {
+        button.disabled = false;
+      }
     }
   });
 </script>

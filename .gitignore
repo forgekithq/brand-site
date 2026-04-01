@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+# generated assets (rebuilt on deploy)
+public/og.png
 
 # dependencies
 node_modules/
