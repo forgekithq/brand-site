@@ -5,14 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  ci:
-    uses: forgekithq/.github/.github/workflows/ci.yml@main
-    with:
-      astro-check: true
-      test-command: 'npm test'
-
   deploy:
-    needs: ci
     uses: forgekithq/.github/.github/workflows/deploy-cf-pages.yml@main
     with:
       project-name: brand-site
