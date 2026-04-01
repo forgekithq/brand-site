@@ -16,6 +16,4 @@ jobs:
     uses: forgekithq/.github/.github/workflows/deploy-cf-pages.yml@main
     with:
       project-name: brand-site
-    secrets:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    secrets: inherit
