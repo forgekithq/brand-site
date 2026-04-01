@@ -7,7 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "generate:og": "tsx scripts/generate-og.ts",
+    "build": "tsx scripts/generate-og.ts && astro build",
+    "test": "vitest run",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -18,7 +20,12 @@
     "astro": "^6.1.2"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260401.1",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/vite": "^4.2.2",
-    "tailwindcss": "^4.2.2"
+    "satori": "^0.26.0",
+    "tailwindcss": "^4.2.2",
+    "tsx": "^4.21.0",
+    "vitest": "^4.1.2"
   }
 }

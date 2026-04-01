@@ -1,0 +1,8 @@
+name = "brand-site"
+compatibility_date = "2024-12-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "forgekit-subscribers"
+database_id = "b94b4150-20e6-462c-8419-aca3e93a4f2f"
+migrations_dir = "migrations"

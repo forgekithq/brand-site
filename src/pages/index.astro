@@ -1,44 +1,98 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EmailForm from '../components/EmailForm.astro';
+import FeatureCard from '../components/FeatureCard.astro';
 ---
 
 <BaseLayout
   title="Forgekit — Developer tools that respect your time"
-  description="Opinionated, production-ready templates and tools for developers who ship."
+  description="Opinionated, production-ready templates and CLI tools for developers who ship."
+  image="/og.png"
 >
   <div class="relative min-h-screen">
-    <main class="flex flex-col items-center justify-center min-h-screen px-6 text-center">
-      <h1 class="text-5xl sm:text-7xl font-bold text-brand-heading tracking-tight">
-        Forgekit
-      </h1>
+    <!-- Grid background -->
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.03]"
+      style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;"
+      aria-hidden="true"
+    ></div>
 
-      <p class="mt-4 text-lg sm:text-xl text-brand-text max-w-md">
-        Developer tools that respect your time.
-      </p>
+    <!-- Hero -->
+    <main class="relative flex flex-col items-center justify-center px-6 pt-32 pb-16 text-center sm:pt-40">
+      <div class="animate-fade-in-up">
+        <div class="mb-8 inline-flex items-center gap-3">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-accent text-2xl font-bold text-brand-bg">
+            F
+          </div>
+          <span class="text-3xl font-bold tracking-tight text-brand-heading">Forgekit</span>
+        </div>
 
-      <p class="mt-8 text-brand-muted text-sm">
-        We're building something. Stay tuned.
-      </p>
+        <h1 class="mx-auto max-w-2xl text-4xl font-bold leading-tight text-brand-heading sm:text-5xl lg:text-6xl">
+          Developer tools that respect your time.
+        </h1>
 
-      <a
-        href="https://github.com/forgekithq"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-10 inline-flex items-center gap-2 text-brand-accent hover:underline text-sm"
-      >
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            fill-rule="evenodd"
-            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-            clip-rule="evenodd"
-          />
-        </svg>
-        github.com/forgekithq
-      </a>
+        <p class="mx-auto mt-6 max-w-lg text-lg text-brand-text">
+          Opinionated, production-ready templates and CLI tools for developers who ship.
+        </p>
+      </div>
+
+      <div class="animate-fade-in-up mt-10" style="animation-delay: 0.2s;">
+        <p class="mb-4 text-sm text-brand-muted">Get notified when we launch</p>
+        <EmailForm />
+      </div>
     </main>
 
-    <footer class="absolute bottom-8 left-0 right-0 text-center text-brand-muted text-xs">
-      Built with care. Not with hype.
+    <!-- What We're Building -->
+    <section class="relative mx-auto max-w-4xl px-6 py-16">
+      <h2 class="animate-fade-in-up mb-10 text-center text-2xl font-bold text-brand-heading" style="animation-delay: 0.3s;">
+        What we're building
+      </h2>
+      <div class="grid gap-6 sm:grid-cols-3" style="animation-delay: 0.4s;">
+        <div class="animate-fade-in-up" style="animation-delay: 0.4s;">
+          <FeatureCard
+            icon="🚀"
+            title="SaaS Starter Kit"
+            description="Ship your next SaaS in days, not months. Auth, billing, and email — all wired up."
+          />
+        </div>
+        <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+          <FeatureCard
+            icon="🔧"
+            title="CLI Tools"
+            description="Validate, sync, and protect your .env files across your team and CI pipeline."
+          />
+        </div>
+        <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+          <FeatureCard
+            icon="📸"
+            title="Screenshot API"
+            description="Capture any webpage at the edge. Fast, simple, developer-friendly."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative border-t border-white/5 py-10 text-center">
+      <div class="flex items-center justify-center gap-4">
+        <span class="text-sm font-semibold text-brand-heading">Forgekit</span>
+        <a
+          href="https://github.com/forgekithq"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-brand-muted transition-colors hover:text-brand-accent"
+          aria-label="GitHub"
+        >
+          <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill-rule="evenodd"
+              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+      </div>
+      <p class="mt-4 text-xs text-brand-muted">Built with care. Not with hype.</p>
     </footer>
   </div>
 </BaseLayout>
