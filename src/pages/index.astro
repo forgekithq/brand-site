@@ -36,9 +36,23 @@ import FeatureCard from '../components/FeatureCard.astro';
         </p>
       </div>
 
-      <div class="animate-fade-in-up mt-10" style="animation-delay: 0.2s;">
-        <p class="mb-4 text-sm text-brand-muted">Get notified when we launch</p>
-        <EmailForm />
+      <div class="animate-fade-in-up mt-10 flex flex-col items-center gap-4 sm:flex-row sm:gap-6" style="animation-delay: 0.2s;">
+        <a
+          href="https://forgekithq.lemonsqueezy.com/checkout/buy/ba6a5df6-e834-4586-ad11-89c5c8191876"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 rounded-lg bg-brand-accent px-6 py-3 text-sm font-semibold text-brand-bg transition-colors hover:bg-brand-accent/90"
+        >
+          Get SaaS Starter Kit — $49
+        </a>
+        <a
+          href="https://demo.forgekithq.dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm font-medium text-brand-muted transition-colors hover:text-brand-accent"
+        >
+          Live demo &rarr;
+        </a>
       </div>
     </main>
 
@@ -53,6 +67,11 @@ import FeatureCard from '../components/FeatureCard.astro';
             icon="🚀"
             title="SaaS Starter Kit"
             description="Ship your next SaaS in days, not months. Auth, billing, and email — all wired up."
+            badge="$49"
+            links={[
+              { label: "Buy now", href: "https://forgekithq.lemonsqueezy.com/checkout/buy/ba6a5df6-e834-4586-ad11-89c5c8191876" },
+              { label: "Live demo", href: "https://demo.forgekithq.dev" },
+            ]}
           />
         </div>
         <div class="animate-fade-in-up" style="animation-delay: 0.5s;">

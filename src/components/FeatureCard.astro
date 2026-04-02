@@ -3,15 +3,38 @@ interface Props {
   icon: string;
   title: string;
   description: string;
+  badge?: string;
+  links?: { label: string; href: string }[];
 }
 
-const { icon, title, description } = Astro.props;
+const { icon, title, description, badge, links } = Astro.props;
 ---
 
 <div
   class="group rounded-xl border border-white/10 bg-brand-surface/50 p-6 transition-all duration-300 hover:border-brand-accent/50 hover:bg-brand-surface/80"
 >
-  <div class="mb-3 text-3xl">{icon}</div>
+  <div class="mb-3 flex items-center gap-2">
+    <span class="text-3xl">{icon}</span>
+    {badge && (
+      <span class="rounded-full bg-brand-accent/20 px-2.5 py-0.5 text-xs font-semibold text-brand-accent">
+        {badge}
+      </span>
+    )}
+  </div>
   <h3 class="mb-2 text-lg font-semibold text-brand-heading">{title}</h3>
   <p class="text-sm leading-relaxed text-brand-muted">{description}</p>
+  {links && links.length > 0 && (
+    <div class="mt-4 flex flex-wrap gap-3">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-sm font-medium text-brand-accent transition-colors hover:text-brand-heading"
+        >
+          {link.label} <span aria-hidden="true">&rarr;</span>
+        </a>
+      ))}
+    </div>
+  )}
 </div>
